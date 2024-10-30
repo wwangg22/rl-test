@@ -2,8 +2,17 @@ import gym
 import numpy as np
 from td3_torch import Agent
 from utils import plot_learning_curve
+import random
+import torch
+
 
 if __name__ == '__main__':
+    seed = 42
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
     env = gym.make('LunarLanderContinuous-v2')
     agent = Agent(alpha=0.001, beta=0.001,
             input_dims=env.observation_space.shape, tau=0.005,
