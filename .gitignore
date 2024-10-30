@@ -1,0 +1,5 @@
+# Ignore the td3/tmp/ directory
+td3/tmp/
+
+# Ignore all .pyc files
+*.pyc
